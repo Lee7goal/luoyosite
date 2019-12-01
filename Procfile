@@ -1,1 +1,1 @@
-web: gunicorn run:app --log-file -
+python.exe -m flask run
