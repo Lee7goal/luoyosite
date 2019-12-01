@@ -1,1 +1,1 @@
-python.exe -m flask run
+web: gunicorn manage:app
