@@ -1,0 +1,33 @@
+{% extends "common/base.html" %}<!--继承基础模板-->
+{% block content %}<!--自定义模板区域-->
+<div class="col-xs-12 col-sm-9">
+  <p class="pull-right visible-xs">
+    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+  </p>
+
+  <div class="jumbotron">
+    <h1>开发者的话</h1>
+    <p>这是一个能够实时获取到TapTap的排行数据的网站</p>
+  </div>
+  <div class="row">
+  {% for app in app_data %}
+    <div class="col-xs-6 col-lg-4">
+    <img src="{{ app[-1]}}" alt="app_img" style="width:150px;height:150px">
+        {% if app[0]|length > 8 %}
+            <h3>{{ app[0][0:8] }}</h3>
+        {% else %}
+            <h3>{{ app[0] }}</h3>
+        {% endif %}
+      <p>{{ app[4][0:70]  + '...' }}</p>
+      <p><a class="btn btn-default" href="{{ app[1] }}" role="button" target="_blank">查看详情 &raquo;</a></p>
+    </div><!--/.col-xs-6.col-lg-4-->
+  {% endfor %}
+  </div><!--/row-->
+    <nav aria-label="...">
+        <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+        </ul>
+    </nav>
+</div><!--/.col-xs-12.col-sm-9-->
+{% endblock %}

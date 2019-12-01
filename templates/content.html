@@ -1,0 +1,35 @@
+{% extends 'common/base.html' %}
+{%  block title %}
+    222
+{% endblock %}
+{%  block main %}
+<style>
+a{
+    -webkit-transition: font-size 0.3s ,color 0.3s;
+}
+a:link {
+    color: black; text-decoration:none;
+}
+a:hover{
+    font-size: 200%;
+    color:darkseagreen;
+}
+</style>
+<div>
+
+    {% for b in app_data %}
+        <table>
+            <tr>
+                <td><a href="{{ b[1] }}" target="_blank">{{ b[0] }}</a></td>
+                <td>{{ b[2].replace('厂商:','') }}</td>
+                <td>{{ '评分:' + b[3] }}</td>
+                <td>{{ b[-1] }}</td>
+            </tr>
+            <tr>
+                ==============================================================
+            </tr>
+        </table>
+    {% endfor %}
+
+</div>
+{% endblock %}
